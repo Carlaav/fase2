@@ -9,21 +9,21 @@ def get_populares(data):
     aux = data.sort_values(by=["popularity"])
     aux = aux.head(15)
     populares = pd.DataFrame({"artist": aux["artist_name"], "cancion" : aux["track_name"]})
-    populares.to_csv(r"copilot\top_Populares.csv", index=False)
+    populares.to_csv(r"fase2\top_Populares.csv", index=False)
 
 def get_bailables(data):
     aux = data.sort_values(by=["danceability"])
     aux = aux.head(15)
     bailables = pd.DataFrame({"artist": aux["artist_name"], "cancion" : aux["track_name"]})
-    bailables.to_csv(r"copilot\top_Bailables.csv", index=False)
+    bailables.to_csv(r"fase2\top_Bailables.csv", index=False)
     
 def get_topTen(data):
     top10 = data.head(10)
     df10 = pd.DataFrame({"artist": top10["artist_name"], "cancion" : top10["track_name"]})
-    df10.to_csv(r"copilot\top10.csv", index=False)
+    df10.to_csv(r"fase2\top10.csv", index=False)
 
 
-data = pd.read_csv("copilot\spoti.csv")
+data = pd.read_csv("fase2\spoti.csv")
 
 get_topTen(data)
 get_populares(data)
